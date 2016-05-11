@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
    <head>
-      <meta charset = "UTF-8">
+      <!-- <meta charset = "UTF-8"> -->
+      <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
       <title>React App</title>
       <script src="http://static.runoob.com/assets/react/react-0.14.7/build/react.min.js"></script>
       <script src="http://static.runoob.com/assets/react/react-0.14.7/build/react-dom.min.js"></script>
@@ -11,7 +12,27 @@
 
    <body>
       <div id = "app"></div>
-      <script src = "index.js"></script>
+      <!-- <script src = "index.js"></script> -->
+    <script type="text/babel">
+        var HelloWorld = React.createClass({
+          render: function() {
+            return (
+              <p>
+                Hello,2222<input type="text" placeholder="Your name here" />!
+                It is {this.props.date.toTimeString()}
+              </p>
+            );
+          }
+        });
+
+        setInterval(function() {
+          React.render(
+            <HelloWorld date={new Date()} />,
+            document.getElementById('app')
+          );
+        }, 500);
+
+    </script>
    </body>
 
 </html>
